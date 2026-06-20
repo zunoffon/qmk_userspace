@@ -32,12 +32,14 @@ U_NP,              U_NP,              KC_ESC,            KC_SPC,            KC_T
  *    Pressing KC_DEL resets the Tap layer back to the Base layer.
  * @see https://github.com/manna-harbour/miryoku/tree/master/docs/reference#additional-features
  *
+ * 2. Replaced KC_SLSH with SOCDTOG on the Tap layer to Toggle SOCD Cleaner
+ *
  */
 #ifdef MIRYOKU_TAP_COLEMAKDH
 #define MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_CUSTOM \
 KC_Q,              KC_W,              KC_F,              KC_P,              KC_B,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
 KC_A,              KC_R,              KC_S,              KC_T,              KC_G,              KC_M,              KC_N,              KC_E,              KC_I,              KC_O,              \
-KC_Z,              KC_X,              KC_C,              KC_D,              KC_V,              KC_K,              KC_H,              KC_COMM,           KC_DOT,            KC_SLSH,           \
+KC_Z,              KC_X,              KC_C,              KC_D,              KC_V,              KC_K,              KC_H,              KC_COMM,           KC_DOT,            SOCDTOG,           \
 U_NP,              U_NP,              KC_ESC,            KC_SPC,            KC_TAB,            KC_ENT,            KC_BSPC,           TD(U_TD_U_BASE),   U_NP,              U_NP
 #define MIRYOKU_LAYER_TAP MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_CUSTOM
 #endif
