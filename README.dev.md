@@ -21,6 +21,13 @@ qmk setup -H  ./qmk_firmware
 qmk config user.qmk_home="$(realpath qmk_firmware)"
 qmk config user.overlay_dir="$(realpath qmk_userspace)"
 ```
+## Building & Flashing Firmware
+### Corne V4 Pro Micro Edition ([Repo](https://github.com/klouderone/cornev4promicroedition))
+```bash
+qmk compile -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce
+qmk flash   -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce -bl uf2-split-left
+qmk flash   -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce -bl uf2-split-right
+```
 # 📌 Maintenance Note
 ## Downstream miryoku
 Following [breaking changes](https://github.com/manna-harbour/miryoku/discussions/287) in QMK that introduced the new External Userspace format,
