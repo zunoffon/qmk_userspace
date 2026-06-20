@@ -25,8 +25,7 @@ qmk config user.overlay_dir="$(realpath qmk_userspace)"
 ### Corne V4 Pro Micro Edition ([Repo](https://github.com/klouderone/cornev4promicroedition))
 ```bash
 qmk compile -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce
-qmk flash   -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce -bl uf2-split-left
-qmk flash   -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce -bl uf2-split-right
+qmk flash   -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce -bl uf2
 ```
 # 📌 Maintenance Note
 ## Downstream miryoku
