@@ -1,3 +1,4 @@
+[![Build QMK firmware](https://github.com/zunoffon/qmk_userspace/actions/workflows/build_binaries.yaml/badge.svg?branch=main)](https://github.com/zunoffon/qmk_userspace/actions/workflows/build_binaries.yaml)
 # Setup
 ## Prepare Repositories
 Before setting up build environment, create a workspace directory and clone the required repositories.
@@ -24,16 +25,22 @@ qmk config user.overlay_dir="$(realpath qmk_userspace)"
 ## Building & Flashing Firmware
 ### Corne V4 Pro Micro Edition ([Repo](https://github.com/klouderone/cornev4promicroedition))
 ```bash
-qmk compile -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce
-qmk flash   -j$(nproc) -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce -bl uf2
+qmk compile -j$(nproc) -kb crkbd/rev1 -km miryoku -e CONVERT_TO=rp2040_ce
+qmk flash   -j$(nproc) -kb crkbd/rev1 -km miryoku -e CONVERT_TO=rp2040_ce -bl uf2
 ```
 # 📌 Maintenance Note
 ## Downstream miryoku
 Following [breaking changes](https://github.com/manna-harbour/miryoku/discussions/287) in QMK that introduced the new External Userspace format,
 the original implementation at manna-harbour/miryoku_qmk is no longer actively maintained.
-[This repository](https://github.com/manna-harbour/miryoku_qmk/tree/miryoku/users/manna-harbour_miryoku) forks and updates that configuration into `qmk_userspace/users/manna-harbour_miryoku`
+[This repository](https://github.com/manna-harbour/miryoku_qmk/tree/miryoku/users/manna-harbour_miryoku) forks and updates that configuration into `qmk_userspace/users/miryoku`
 ## Adding New Modules
 ```bash
 cd qmk_userspace
 git submodule add https://github.com/getreuer/qmk-modules.git modules/getreuer
+```
+## GitHub Actions:
+Adding new build release target
+```bash
+qmk userspace-add -kb crkbd/rev1 -km miryoku -e CONVERT_TO=rp2040_ce
+qmk userspace-doctor
 ```
