@@ -14,6 +14,14 @@ void u_td_fn_U_EXTRA_custom(tap_dance_state_t *state, void *user_data) {
   if (state->count == 2) { // Default behavior
     uprintf("%s: Setting Miryoku EXTRA layer\n", __func__);
     default_layer_set((layer_state_t)1 << U_EXTRA);
+  } else if (state->count == 3) {
+    uprintf("%s: Toggling SOCD Cleaner\n", __func__);
+    keyrecord_t record;
+    record.event.pressed = true;
+    uint16_t keycode = SOCDTOG;
+    // API Format: process_record_<module>
+    process_record_socd_cleaner(keycode, &record);
+    // uprintf("%s: SOCD en: [%d]\n", __func__, socd_cleaner_enabled);
   }
 }
 
