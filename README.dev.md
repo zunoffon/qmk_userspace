@@ -26,6 +26,8 @@ qmk config user.overlay_dir="$(realpath .)"
 ### Corne V4 Pro Micro Edition ([Repo](https://github.com/klouderone/cornev4promicroedition))
 ```bash
 qmk compile -j$(nproc) -kb crkbd/rev1 -km miryoku -e CONVERT_TO=rp2040_ce
+# Debugging
+qmk compile -j$(nproc) -kb crkbd/rev1 -km miryoku -e CONVERT_TO=rp2040_ce -e CONSOLE_ENABLE=yes
 qmk flash   -j$(nproc) -kb crkbd/rev1 -km miryoku -e CONVERT_TO=rp2040_ce -bl uf2
 ```
 # 📌 Maintenance Note
